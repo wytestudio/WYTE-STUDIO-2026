@@ -36,11 +36,11 @@
 :root {
 	
 	/* #ba024a in decimal RGB */
-	--main-color: rgb(0, 101, 196);
+	--main-color: rgb(222, 0, 0);
 	--main-color-rgb:186,2,74;
 	
 	/* #540045 in decimal RGB */
-	--color-two: rgb(0, 38, 85);
+	--color-two: rgb(207, 77, 77);
 	--color-two-rgb:84,0,69;
 	
 	/* #120c12 in decimal RGB */

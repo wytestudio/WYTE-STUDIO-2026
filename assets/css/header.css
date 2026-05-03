@@ -123,8 +123,8 @@
 
 .main-header .main-menu .navigation > li{
 	position:relative;
-	margin-right:25px;
-	padding-left:42px;
+	margin-right:10px;
+	padding-left:40px;
 	display:inline-block;
 	transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
@@ -135,7 +135,7 @@
 
 .main-header .main-menu .navigation > li:before{
 	position:absolute;
-	content:'';
+	content:;
 	left: 14px;
 	top:50%;
 	width: 16px;
