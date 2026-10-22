@@ -121,3 +121,18 @@ document.querySelectorAll('[data-case]').forEach((card) => {
 });
 document.querySelectorAll('[data-case-close]').forEach((element) => element.addEventListener('click', closeCase));
 window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeCase(); });
+/* Change hero background only while Explore the work is hovered */
+(() => {
+  const hero = document.querySelector(".hero");
+  const explore = hero?.querySelector(".circle-link");
+
+  if (!hero || !explore) return;
+
+  explore.addEventListener("mouseenter", () => {
+    hero.classList.add("is-work-hover");
+  });
+
+  explore.addEventListener("mouseleave", () => {
+    hero.classList.remove("is-work-hover");
+  });
+})();

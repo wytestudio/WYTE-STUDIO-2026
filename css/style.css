@@ -22,7 +22,7 @@ button { font:inherit; color:inherit; }
 .brand-mark i:nth-child(3) { height:22px; transform:scaleX(.78); }
 .brand-wordmark small { display:block; font-family:var(--mono); font-weight:400; font-size:7px; letter-spacing:.35em; margin-top:-3px; margin-left:2px; }
 .brand-logo-image { display:block; width:118px; height:auto; max-height:none; object-fit:contain; object-position:left center; flex:0 0 auto; }
-.header-brand, .footer-brand { display:inline-flex; align-items:center; width:300px; min-height:0; line-height:0; }
+.header-brand, .footer-brand { display:inline-flex; align-items:center; width:60px; min-height:0; line-height:0; }
 .header-brand .brand-logo-image, .footer-brand .brand-logo-image { width:60px; height:auto; max-height:none; }
 .header-brand { position:relative; z-index:2; }
 .footer-brand { justify-self:start; align-self:start; }
@@ -279,3 +279,136 @@ button { font:inherit; color:inherit; }
   *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
   .reveal { opacity:1; transform:none; }
 }
+/* ========================================
+   LOGO SIZE ADJUSTMENT — MOBILE ONLY
+   ======================================== */
+
+@media (max-width: 520px) {
+  .header-brand {
+    width: 80px; /* Change mobile header logo container size */
+  }
+
+  .header-brand .brand-logo-image {
+    width: 50px; /* Change mobile header logo size */
+    height: auto;
+  }
+
+  .footer-brand {
+    width: 80px; /* Change mobile footer logo container size */
+  }
+
+  .footer-brand .brand-logo-image {
+    width: 50px; /* Change mobile footer logo size */
+    height: auto;
+  }
+}
+/* Homepage hero background image */
+.hero {
+  background-image:
+    linear-gradient(
+      rgba(9, 9, 9, 0.35),
+      rgba(9, 9, 9, 0.55)
+    ),
+    url("../assets/images/b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Wyte Studio — Floating glass header box */
+.site-header {
+  left: 4%;
+  right: 4%;
+  top: 20px;
+  width: 92%;
+  height: 72px;
+  padding: 0 28px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 40px;
+
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+
+  box-sizing: border-box;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    height 0.3s ease,
+    top 0.3s ease;
+}
+
+/* Keep the glass effect when the header scrolls */
+.site-header.is-scrolled {
+  top: 12px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  .site-header {
+    left: 4%;
+    right: 4%;
+    width: 92%;
+    padding: 0 18px;
+    top: 12px;
+  }
+
+  .site-header.is-scrolled {
+    top: 8px;
+  }
+}/* Alternate homepage background — does not affect layout */
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-hover-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("../assets/images/hero-hover.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.hero.is-work-hover .hero-hover-background {
+  opacity: 1;
+}
+
+.hero .hero-content,
+.hero .hero-index,
+.hero .scroll-cue {
+  position: relative;
+  z-index: 2;
+}/* Mobile menu: keep every navigation link consistent */
+.mobile-menu nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  border: 0;
+  background: transparent;
+}
+
+/* Remove the special styling from the Contact link */
+.mobile-menu nav a span {
+  display: none;
+}
+
+/* Preserve the same hover effect for every menu item */
+.mobile-menu nav a:hover,
+.mobile-menu nav a:focus-visible {
+  color: inherit;
+  opacity: 0.65;
+}
+
