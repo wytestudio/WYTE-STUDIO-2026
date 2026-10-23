@@ -46,14 +46,25 @@ button { font:inherit; color:inherit; }
 .display { margin:26px 0 0; font-size:clamp(64px, 9vw, 142px); letter-spacing:-.08em; line-height:.86; font-weight:600; max-width:1000px; }
 .display em, .heading-xl em { font-family:var(--serif); font-weight:400; letter-spacing:-.08em; }
 .hero-bottom { display:flex; justify-content:space-between; align-items:end; margin-top:80px; max-width:1070px; }
-.hero-intro { width:450px; margin:0; color:rgba(242,239,233,.68); font-size:14px; line-height:1.55; }
+.hero-intro {
+  width: 450px;
+  margin: 0;
+  color: rgba(242, 239, 233, 0.68);
+  font-size: 14px;
+  line-height: 1.55;
+
+  /* Position adjustment */
+  position: relative;
+  left: -100px;  /* Right: increase | Left: decrease */
+  top: 0px;   /* Down: increase | Up: decrease */
+}
 .circle-link { width:138px; height:138px; display:flex; justify-content:center; align-items:center; gap:11px; border:1px solid rgba(242,239,233,.42); border-radius:50%; font:10px var(--mono); text-transform:uppercase; letter-spacing:.08em; transition:background .3s ease, border .3s ease, transform .3s ease; }
-.circle-link b { color:var(--warm); font:24px var(--sans); align-self:flex-end; margin-bottom:29px; }
+.circle-link b { color:var(--warm); font:24px var(--sans); align-self:flex-end; margin-bottom:50px; }
 .circle-link:hover { background:var(--warm); border-color:var(--warm); color:var(--ink); transform:rotate(-7deg); }
 .circle-link:hover b { color:var(--ink); }
 .hero-index { position:absolute; right:40px; bottom:80px; font:10px var(--mono); color:rgba(242,239,233,.8); writing-mode:vertical-rl; transform:rotate(180deg); }
 .hero-index span { color:var(--warm); margin-top:8px; }
-.scroll-cue { position:absolute; left:40px; bottom:30px; font:9px var(--mono); text-transform:uppercase; letter-spacing:.15em; color:rgba(242,239,233,.55); display:flex; gap:12px; align-items:center; }
+.scroll-cue { position:absolute; left:-100px; bottom:0px; font:9px var(--mono); text-transform:uppercase; letter-spacing:.15em; color:rgba(242,239,233,.55); display:flex; gap:12px; align-items:center; }
 .scroll-cue span { width:34px; height:1px; background:var(--warm); }
 .hero-slice { position:absolute; z-index:0; width:490px; height:490px; right:10%; top:24%; border:1px solid rgba(242,105,47,.22); border-radius:50%; transform:rotate(35deg) skew(-18deg); box-shadow:0 0 120px rgba(242,105,47,.12), inset 0 0 80px rgba(242,105,47,.08); }
 .hero-slice:after { content:'W'; position:absolute; inset:30px; border:1px solid rgba(242,239,233,.12); color:rgba(242,239,233,.08); border-radius:50%; font:340px/.8 var(--sans); font-weight:800; text-align:center; padding-top:80px; }
@@ -75,7 +86,43 @@ button { font:inherit; color:inherit; }
 .about-copy p { margin:0; }
 .about-footer { border-top:1px solid var(--paper-line); margin-top:75px; padding-top:23px; display:flex; gap:24px; align-items:center; color:#58554f; font-size:12px; }
 .about-footer p { max-width:270px; margin:0; }
-.outline-stamp { width:58px; height:58px; border:1px solid #b4b0a8; border-radius:50%; display:flex; align-items:center; justify-content:center; font:10px/.9 var(--mono); letter-spacing:.08em; color:var(--warm); }
+
+/* Outline stamp — consistent circle on every screen */
+.outline-stamp {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  min-height: 58px;
+  flex: 0 0 58px;
+
+  border: 1px solid #b4b0a8;
+  border-radius: 50%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+
+  font: 10px/.9 var(--mono);
+  letter-spacing: .08em;
+  color: var(--warm);
+}
+
+/* Keep the circle unchanged on mobile */
+@media (max-width: 520px) {
+  .outline-stamp {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    min-height: 58px;
+    flex: 0 0 58px;
+    border-radius: 50%;
+  }
+}
+
 .about-art { min-height:450px; display:flex; align-items:center; justify-content:flex-end; }
 .art-frame { width:100%; aspect-ratio:1.1; max-width:430px; position:relative; overflow:hidden; background:radial-gradient(circle at 74% 28%, #f86e2d, #8e2a18 17%, #201313 54%, #090909 77%); box-shadow:inset 0 0 90px rgba(0,0,0,.45); }
 .art-frame:before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(102deg, transparent 0 9px, rgba(255,255,255,.08) 10px 11px, transparent 12px 24px); transform:skew(-25deg) translateX(-20%); opacity:.45; }
@@ -211,7 +258,7 @@ button { font:inherit; color:inherit; }
   .desktop-nav, .header-cta { display:none; }
   .menu-toggle { display:block; }
   .site-header.is-scrolled { height:64px; }
-  .mobile-menu { display:block; position:fixed; inset:0; z-index:25; background:var(--warm); color:var(--ink); transform:translateY(-100%); transition:transform .5s cubic-bezier(.2,.8,.2,1); padding:125px 22px 50px; }
+  .mobile-menu { display:block; position:fixed; inset:0; z-index:25; background:var(--warm); color:var(--ink); transform:translateY(-100%); transition:transform .5s cubic-bezier(.2,.8,.2,1); padding:140px 30px 50px; }
   body.menu-open .mobile-menu { transform:translateY(0); }
   body.menu-open .menu-toggle span:first-child { transform:translateY(4px) rotate(45deg); } body.menu-open .menu-toggle span:last-child { transform:translateY(-4px) rotate(-45deg); }
   .mobile-menu nav { display:flex; flex-direction:column; gap:14px; }
@@ -224,10 +271,23 @@ button { font:inherit; color:inherit; }
   .orbit-two { width:450px; height:200px; right:-38%; top:59%; }
   .display { font-size:clamp(56px, 16vw, 110px); }
   .hero-bottom { margin-top:55px; align-items:flex-start; }
-  .hero-intro { width:245px; font-size:12px; }
+  .hero-intro {
+  width: 245px;
+  font-size: 12px;
+  line-height: 1.55;
+
+  /* Mobile position adjustments */
+  position: relative;
+  left: 0px;  /* Right: increase | Left: decrease */
+  top: 0px;   /* Down: increase | Up: decrease */
+}
   .circle-link { width:100px; height:100px; font-size:8px; } .circle-link b { margin-bottom:19px; }
   .hero-index { right:22px; bottom:74px; }
-  .scroll-cue { left:22px; bottom:70px; }
+  /* Scroll cue position — mobile */
+.scroll-cue {
+  left: 0px;   /* Move left or right */
+  bottom: 108px; /* Move up or down */
+}
   .about, .services, .work, .approach, .testimonials { padding:100px 0 110px; }
   .about-grid, .industries-layout, .testimonial-layout, .contact-layout { grid-template-columns:1fr; gap:37px; }
   .section-label { writing-mode:initial; transform:none; height:auto; justify-content:initial; gap:15px; }
@@ -411,4 +471,10 @@ button { font:inherit; color:inherit; }
   color: inherit;
   opacity: 0.65;
 }
-
+.mobile-menu a:last-child {
+  color: var(--ink);
+  border-color: var(--paper);
+  margin-top: 0px;
+  font-size: 16px;
+  letter-spacing: -.03em;
+}
