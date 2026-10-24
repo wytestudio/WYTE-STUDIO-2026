@@ -478,3 +478,83 @@ button { font:inherit; color:inherit; }
   font-size: 16px;
   letter-spacing: -.03em;
 }
+/* SERVICE ARROW PNG — LAPTOP / DESKTOP */
+.service-arrow {
+  width: 40px;       /* Adjust desktop arrow width */
+  height: 40px;      /* Adjust desktop arrow height */
+  position: relative;
+  top: 0px;        /* Move up/down */
+  left: -10px;       /* Move left/right */
+  flex-shrink: 0;
+}
+
+.service-arrow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER EFFECT — DESKTOP */
+.service-trigger:hover .service-arrow img {
+  transform: scale(1.1);
+}
+
+/* SERVICE ARROW PNG — MOBILE */
+@media (max-width: 600px) {
+  .service-arrow {
+    width: 22px;     /* Adjust mobile arrow width */
+    height: 22px;    /* Adjust mobile arrow height */
+    top: 0px;      /* Move up/down */
+    left: -10px;     /* Move left/right */
+  }
+}
+/* EMAIL ARROW — LAPTOP / DESKTOP */
+.contact-arrow-img {
+  width: 30px;       /* Arrow width */
+  height: 30px;      /* Arrow height */
+  object-fit: contain;
+  display: inline-block;
+
+  position: relative;
+  top: 0px;           /* Positive = down, negative = up */
+  left: 0px;          /* Positive = right, negative = left */
+
+  margin-left: 8px;   /* Space after email */
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.contact-link:hover .contact-arrow-img {
+  transform: scale(1.1);
+}
+
+/* EMAIL ARROW — MOBILE */
+@media (max-width: 600px) {
+  .contact-arrow-img {
+    width: 24px;      /* Mobile arrow width */
+    height: 24px;     /* Mobile arrow height */
+
+    top: 0px;         /* Mobile vertical position */
+    left: 0px;        /* Mobile horizontal position */
+
+    margin-left: 5px;
+  }
+}
+/* SERVICES SECTION — BACKGROUND IMAGE */
+.services {
+  background:
+    linear-gradient(
+      rgba(70, 20, 0, 0.766),
+      rgba(0, 0, 0, 0.705)
+    ),
+    url("../assets/images/services-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
