@@ -136,3 +136,86 @@ window.addEventListener('keydown', (event) => { if (event.key === 'Escape') clos
     hero.classList.remove("is-work-hover");
   });
 })();
+
+/* =====================================
+   WYTE STUDIO — CASE STUDY SLIDER
+===================================== */
+
+(() => {
+  const slider = document.querySelector("[data-case-slider]");
+  if (!slider || slider.dataset.initialized === "true") return;
+
+  slider.dataset.initialized = "true";
+
+  const track = slider.querySelector("[data-case-track]");
+  const cards = Array.from(track.querySelectorAll(".stack-card"));
+  const prevButton = slider.querySelector("[data-stack-prev]");
+  const nextButton = slider.querySelector("[data-stack-next]");
+  const currentLabel = slider.querySelector("[data-stack-current]");
+  const progress = slider.querySelector("[data-stack-progress]");
+
+  if (!cards.length) return;
+
+  let current = 0;
+  let touchStartX = 0;
+
+  function showSlide(index) {
+    current = (index + cards.length) % cards.length;
+
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    cards.forEach((card, i) => {
+      const active = i === current;
+      card.classList.toggle("is-active", active);
+      card.setAttribute("aria-current", active ? "true" : "false");
+    });
+
+    if (currentLabel) {
+      currentLabel.textContent = String(current + 1).padStart(2, "0");
+    }
+
+    if (progress) {
+      progress.style.width = `${((current + 1) / cards.length) * 100}%`;
+    }
+  }
+
+  prevButton?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    showSlide(current - 1);
+  });
+
+  nextButton?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    showSlide(current + 1);
+  });
+
+  slider.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showSlide(current - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showSlide(current + 1);
+    }
+  });
+
+  slider.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  slider.addEventListener("touchend", (event) => {
+    const difference = event.changedTouches[0].clientX - touchStartX;
+
+    if (Math.abs(difference) > 55) {
+      showSlide(current + (difference < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  showSlide(0);
+})();
+
+
+
+
