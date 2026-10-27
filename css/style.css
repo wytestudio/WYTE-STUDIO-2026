@@ -1318,3 +1318,64 @@ button { font:inherit; color:inherit; }
   }
 }
 
+.about-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+}
+
+.about-footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  min-width: 0;
+}
+
+.about-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 15px 20px;
+  border-radius: 12px;
+  background: var(--warm, #f2692f);
+  color: var(--ink, #090909);
+  border: 1px solid var(--warm, #f2692f);
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.about-download-btn:hover {
+  background: transparent;
+  color: var(--ink, #090909);
+  transform: translateY(-2px);
+}
+
+.about-download-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .about-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-download-btn {
+    margin-left: 0;
+  }
+}
+
+
