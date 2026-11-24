@@ -90,10 +90,11 @@ if (!prefersReducedMotion) {
 }
 
 const caseStudies = {
-  hane: { kicker: 'F&B / 01', title: 'Hane Patisserie', description: 'A refined identity for a premium dessert brand specialising in indulgent, high-quality tiramisu. We shaped a visual world that reflects craftsmanship, richness and the fine details of the product.', industry: 'Food & Beverage', services: 'Branding · Art direction' },
-  learnit: { kicker: 'Education / 02', title: 'Learnit', description: 'A modern, approachable identity for an e-learning platform dedicated to helping learners improve their English language skills through accessible and engaging digital education.', industry: 'Education', services: 'Logo design · Branding' },
-  truetrader: { kicker: 'Trading / 03', title: 'TrueTrader', description: 'A seamless and intuitive trading experience designed around clear navigation, usability and confidence. We created the product UI/UX and the visual system that supports the journey across the platform.', industry: 'Trading', services: 'Application UI/UX design' },
-  dreamgold: { kicker: 'Sporting / 04', title: 'Dream Gold', description: 'A distinctive visual identity and social media direction for a sports-focused brand building a stronger presence in the sporting industry and a more engaging connection with its audience.', industry: 'Sporting', services: 'Branding · Social media management' }
+  veyro: { kicker: 'EYEWEAR / 01', title: 'Veyro - The Shade House', description: "Crafting a distinctive identity that brings VEYRO's contemporary eyewear vision to life through refined art direction, modern aesthetics and a bold visual language.", industry: 'EYEWEAR', services: 'Branding · Art direction' },
+  hane: { kicker: 'F&B / 02', title: 'Hane Patisserie', description: 'A refined identity for a premium dessert brand specialising in indulgent, high-quality tiramisu. We shaped a visual world that reflects craftsmanship, richness and the fine details of the product.', industry: 'Food & Beverage', services: 'Branding · Art direction' },
+  learnit: { kicker: 'Education / 03', title: 'Learnit', description: 'A modern, approachable identity for an e-learning platform dedicated to helping learners improve their English language skills through accessible and engaging digital education.', industry: 'Education', services: 'Logo design · Branding' },
+  truetrader: { kicker: 'Trading / 04', title: 'TrueTrader', description: 'A seamless and intuitive trading experience designed around clear navigation, usability and confidence. We created the product UI/UX and the visual system that supports the journey across the platform.', industry: 'Trading', services: 'Application UI/UX design' },
+  dreamgold: { kicker: 'Sporting / 05', title: 'Dream Gold', description: 'A distinctive visual identity and social media direction for a sports-focused brand building a stronger presence in the sporting industry and a more engaging connection with its audience.', industry: 'Sporting', services: 'Branding · Social media management' }
 };
 const caseModal = document.querySelector('[data-case-modal]');
 const caseModalTitle = document.querySelector('[data-case-modal-title]');
